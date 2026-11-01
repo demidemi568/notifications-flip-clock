@@ -6,7 +6,7 @@ A big flip clock for a spare monitor on Windows, with notification bubbles for D
 > works for her. It hasn't been tested on lots of machines, so expect rough edges. Fork it and vibe code it to your
 > standards from here. The code is small and commented, and an AI assistant can find its way around it easily.
 
-<img width="1914" height="1077" alt="image" src="https://github.com/user-attachments/assets/51deaaaa-5db6-48e0-8f34-4ec516d70b7b" />
+<img width="1911" height="1074" alt="image" src="https://github.com/user-attachments/assets/65b3b3ce-442d-49c6-84b3-1b87f8131fe6" />
 <img width="1917" height="1071" alt="image" src="https://github.com/user-attachments/assets/c04b4736-5f32-41ef-adf5-81ca01d0ee56" />
 
 ## Features
