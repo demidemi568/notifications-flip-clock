@@ -7,6 +7,7 @@ A big flip clock for a spare monitor on Windows, with notification bubbles for D
 > standards from here. The code is small and commented, and an AI assistant can find its way around it easily.
 
 <img width="720" height="405" alt="flip-clock-demo" src="https://github.com/user-attachments/assets/ff03156f-cb1a-44a6-926a-bd3ebcc76708" />
+<sub>Demo recorded with time sped up and test notifications in Claude's Linux box.</sub>
 
 ## Features
 
