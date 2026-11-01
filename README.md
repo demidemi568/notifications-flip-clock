@@ -2,6 +2,9 @@
 
 A big flip clock for a spare monitor on Windows, with notification bubbles for Discord and Telegram.
 
+<img width="1914" height="1077" alt="image" src="https://github.com/user-attachments/assets/51deaaaa-5db6-48e0-8f34-4ec516d70b7b" />
+<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/b01e86a8-33ce-4710-91d6-04a599862fc2" />
+
 > **Unpolished, not built for wide release.** This was vibe coded with Claude for one person's desk setup, and it
 > works for her. It hasn't been tested on lots of machines, so expect rough edges. Fork it and vibe code it to your
 > standards from here. The code is small and commented, and an AI assistant can find its way around it easily.
