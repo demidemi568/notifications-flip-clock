@@ -1,0 +1,53 @@
+# Builds FlipClock.exe from this source and attaches it to a GitHub release.
+# Runs by itself when a release/tag like v1.0.0 is created, or by hand:
+# Actions tab > Release > Run workflow > type the release's tag.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build and attach the exe to"
+        required: true
+        default: "v1.0.0"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Build FlipClock.exe
+        run: dotnet publish FlipClock.csproj -c Release -o publish
+
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory dist/FlipClock | Out-Null
+          Copy-Item publish/FlipClock.exe dist/FlipClock/
+          Copy-Item README.md, LICENSE dist/FlipClock/
+          Copy-Item -Recurse BetterDiscord dist/FlipClock/
+          Compress-Archive -Path dist/FlipClock -DestinationPath FlipClock-win-x64.zip
+
+      # Works whether the release was made on the website or by pushing a tag.
+      - name: Attach to release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view $env:TAG 2>$null
+          if ($LASTEXITCODE -ne 0) { gh release create $env:TAG --title "Flip Clock $env:TAG" --generate-notes }
+          gh release upload $env:TAG FlipClock-win-x64.zip --clobber
